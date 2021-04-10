@@ -1,13 +1,12 @@
-# IDE ignore
+# IDE
 /.idea
 /.vscode
 
-# Node ignore
+# Node
 /node_modules
 
-# build ignore
-.build
+# build
+/.build
 
-# Other ignore
-/docs
+# Other
 /.serverless
