@@ -35,6 +35,13 @@ functions:
             CLIENT_URL: 'https://danielmolina.net'
             LOCAL_URL: 'http://localhost:3000'
             SECRET_KEY: '${ssm:danielmolina-be-secret-token}'
+            DATABASE_HOST: '${ssm:database-host}'
+            DATABASE_USER: '${ssm:database-user}'
+            DATABASE_PASSWORD: '${ssm:database-password}'
+            DATABASE_NAME: '${ssm:database-selected}'
+            DATABASE_SCHEMA: 'danielmolina'
+            DATABASE_PORT: '${ssm:database-port}'
+
 
         events:
             # This is to enable the preflight CORS request at express level
