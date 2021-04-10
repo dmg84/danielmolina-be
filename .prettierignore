@@ -1,0 +1,12 @@
+# Ignore artifacts:
+/.build
+coverage
+node_modules
+
+# others
+/.serverless
+serverless.yml
+README.md
+package-lock.json
+.gitignore
+.eslintignore
