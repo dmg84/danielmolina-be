@@ -52,6 +52,7 @@ functions:
             - http:
                   path: '/api/v1/example'
                   method: GET
+                  authorizer: ${self:custom.authorizer}
 
 resources:
     Resources:
@@ -81,3 +82,13 @@ custom:
         stage: 'dev'
         httpPort: 8082
         noAuth: true
+        lambdaPort: 3002
+
+    authorizer:
+        arn: ${ssm:danielmolina-authorizer-arn}
+        managedExternally: false
+        identitySource: method.request.header.Host
+        resultTtlInSeconds: 0
+        type: request
+
+
