@@ -5,7 +5,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
-import publicRoutes from './routes/public-routes';
+import routes from './routes';
 
 export const app: Express = express();
 app.use(helmet());
@@ -22,4 +22,4 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
 app.use(compression());
 
-app.use(process.env.BASE_URL, publicRoutes);
+app.use(process.env.BASE_URL, routes);

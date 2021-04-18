@@ -30,7 +30,6 @@ functions:
         handler: src/index.handler
         name: ${self:service}
         environment:
-            NODE_ENV: production
             BASE_URL: '/api/v1'
             CLIENT_URL: 'https://danielmolina.net'
             LOCAL_URL: 'http://localhost:3000'
@@ -41,18 +40,23 @@ functions:
             DATABASE_NAME: '${ssm:database-selected}'
             DATABASE_SCHEMA: 'danielmolina'
             DATABASE_PORT: '${ssm:database-port}'
+            SALT_ROUNDS: 5
+            SYMMETRIC_KEY: ${ssm:danielmolina-symmetric-key}
+            COOKIE_NAME: 'sessionCookie'
 
 
         events:
             # This is to enable the preflight CORS request at express level
             - http:
-                  path: '/api/v1/{proxy+}'
-                  method: OPTIONS
-
+                path: '/api/v1/{proxy+}'
+                method: OPTIONS
             - http:
-                  path: '/api/v1/example'
-                  method: GET
-                  authorizer: ${self:custom.authorizer}
+                path: '/api/v1/users'
+                method: POST
+                authorizer: ${self:custom.authorizer}
+            - http:
+                path: '/api/v1/users/login'
+                method: POST
 
 resources:
     Resources:
