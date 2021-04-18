@@ -41,6 +41,6 @@
         "deploy": "sls deploy",
         "start": "serverless offline",
         "eslint:fix": "eslint --fix '**/*.ts'",
-        "prettier:fix": "prettier --check --write *"
+        "prettier:fix": "prettier --check --write ."
     }
 }

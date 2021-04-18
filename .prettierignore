@@ -1,12 +1,13 @@
 # Ignore artifacts:
-/.build
+.build
 coverage
 node_modules
 
 # others
-/.serverless
+.serverless
 serverless.yml
 README.md
 package-lock.json
 .gitignore
 .eslintignore
+db
