@@ -10,10 +10,9 @@ import routes from './routes';
 export const app: Express = express();
 app.use(helmet());
 app.use(nocache());
-console.log(process.env.NODE_ENV, process.env.LOCAL_URL);
 app.use(
     cors({
-        origin: [process.env.CLIENT_URL, process.env.LOCAL_URL],
+        origin: process.env.NODE_ENV !== 'production' ? process.env.LOCAL_URL : process.env.CLIENT_URL,
         credentials: true
     })
 );
