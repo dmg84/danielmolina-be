@@ -15,6 +15,7 @@
         "express": "^4.17.1",
         "express-locale": "^2.0.0",
         "helmet": "^4.4.1",
+        "jsonwebtoken": "^8.5.1",
         "nocache": "^2.1.0",
         "pg": "^8.5.1",
         "serverless-http": "^2.7.0"
